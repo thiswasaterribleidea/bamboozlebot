@@ -55,6 +55,7 @@ function scrapeClasses() {
         }
         try {
             classData.percent = gradeElement.children[1].children[1].children[0].textContent.substr(1, 5)
+            classData.percent2 = classData.percent.replace(
             if (classData.percent == "0.0%)") { classData.percent = "00.0%" }
         } catch { classData.percent = "N/A" }
         classes.push(classData)
@@ -118,3 +119,4 @@ function runChanges() {
     chrome.storage.sync.get(['useImage', 'imgLink2', 'bgColor', 'sColor1', 'sColor2', 'remove', 'floatBtn', 'background', 'automaticallyLogin', 'loginOAuth', 'enabled', 'jsonOrg'], function (result) {
     scrapeClasses()
     replaceGrades()
+}
