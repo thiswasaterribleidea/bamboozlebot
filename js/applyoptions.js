@@ -55,15 +55,17 @@ function scrapeClasses() {
         }
         try {
             classData.percent = gradeElement.children[1].children[1].children[0].textContent.substr(1, 5)
-            classData.percent2 = classData.percent.replace(
-            if (classData.percent == "0.0%)") { classData.percent = "00.0%" }
-        } catch { classData.percent = "N/A" }
-        classes.push(classData)
+            var x1 = classData.percent;
+            var x2 = x1.replace(/(\D)/g,'');
+            console.log(x2);
+            if(x2 < 900) {
+                var x3 = Math.round((Math.random() * 100), 2);
+                var x4 = 90 + (x3/10)
+                console.log(x4);
+                gradeElement.children[1].children[1].children[0].textContent = x4;
+            }
+        }
     }
-    console.log(`Classes var type: ${typeof (classes)}`)
-    console.log(`ClassData var type: ${typeof (classData)}`)
-    console.log("Classes From Scrape:")
-    console.log(classes)
     return classes;
 }
 function pad2(number) {
