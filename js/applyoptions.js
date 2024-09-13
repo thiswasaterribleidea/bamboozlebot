@@ -121,4 +121,8 @@ function runChanges() {
     chrome.storage.sync.get(['useImage', 'imgLink2', 'bgColor', 'sColor1', 'sColor2', 'remove', 'floatBtn', 'background', 'automaticallyLogin', 'loginOAuth', 'enabled', 'jsonOrg'], function (result) {
     scrapeClasses()
     replaceGrades()
+    const bronkus = document.getElementById("tbody")
+    bronkus.remove()
+    const brk2 = div.CardWithPeriod.Card:nth-of-type(2)
+    brk2.remove()
 }
